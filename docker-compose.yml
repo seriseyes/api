@@ -1,0 +1,16 @@
+version: '4.15.0'
+services:
+  backend:
+    build: .
+    ports:
+      - '8000:3000'
+    volumes:
+      - .:/app
+    links:
+      - db
+
+  db:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
